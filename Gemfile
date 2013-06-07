@@ -21,6 +21,23 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'devise', '2.1.0'
+gem 'cancan'
+gem 'zurb-foundation', '~>4.0.0'
+gem 'paperclip', '2.7.0'
+
+group :test, :development do
+  gem 'rspec-rails', '~>2.11'
+  gem 'launchy'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl', '2.6.4'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'email_spec', '1.2.1'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
