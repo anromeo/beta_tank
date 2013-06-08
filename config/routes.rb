@@ -2,6 +2,10 @@ BetaTank::Application.routes.draw do
 
   devise_for :users
 
+  authenticated :user do
+    resources :betas
+  end
+
   root to: "home#index"
 
   # The priority is based upon order of creation:
