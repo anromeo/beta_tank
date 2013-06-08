@@ -22,9 +22,8 @@ end
 
 gem 'jquery-rails'
 gem 'devise', '2.1.0'
-gem 'cancan'
 gem 'zurb-foundation', '~>4.0.0'
-gem 'paperclip', '2.7.0'
+gem 'fancybox-rails'
 
 group :test, :development do
   gem 'rspec-rails', '~>2.11'
