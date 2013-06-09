@@ -5,6 +5,7 @@ BetaTank::Application.routes.draw do
   authenticated :user do
     resources :betas
     resources :manuscripts do
+      resources :betas
       resources :content
     end
   end

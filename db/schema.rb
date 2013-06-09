@@ -11,16 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609022402) do
+ActiveRecord::Schema.define(:version => 20130609025759) do
 
   create_table "beta", :force => true do |t|
-    t.string   "username"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "bio"
-    t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "manuscript_id"
+    t.string   "user_id"
+    t.boolean  "approval",      :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "contents", :force => true do |t|
@@ -34,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20130609022402) do
     t.string   "title"
     t.integer  "draft"
     t.string   "genres"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|

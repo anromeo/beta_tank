@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :manuscripts, dependent: :destroy
+  has_many :betas, dependent: :destroy
 end

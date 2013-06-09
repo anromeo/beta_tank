@@ -1,0 +1,7 @@
+<% @manuscripts.each do |manuscript| %>
+  <div>
+    <%= link_to manuscript.title, beta_path(manuscript) %>
+    <%= "Draft #{manuscript.draft}" %>
+    <%= manuscript.description %>
+  </div>
+<% end %>

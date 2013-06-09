@@ -1,1 +1,11 @@
 <%= link_to "Add New Manuscript", new_manuscript_path %>
+<%= link_to "Browse Books to Beta Read", manuscripts_path %>
+<h2>Your Manuscripts</h2>
+<% if @authored_books.nil? %>
+  You currently don't have any books that you have uploaded
+<% else %>
+  <% @authored_books.each do |book| %>
+    <p><%= link_to book.title, manuscript_path(book) %></p>
+  <% end %>
+<% end %>
+<h2>Manuscripts Your Reading</h2>

@@ -7,7 +7,6 @@ feature "an author uploads a manuscript" do
   title = "The Code Freakers"
   draft = 1
   genres = "fantasy, scifi"
-  book = "tons and tons and tons of text"
   finish = "Add Manuscript"
 
   before do

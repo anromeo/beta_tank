@@ -1,5 +1,9 @@
 class ManuscriptsController < ApplicationController
 
+  def index
+    @manuscripts = Manuscript.all
+  end
+
   def new
     @manuscript = current_user.manuscripts.build
   end

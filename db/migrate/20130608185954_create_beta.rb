@@ -1,11 +1,9 @@
 class CreateBeta < ActiveRecord::Migration
   def change
     create_table :beta do |t|
-      t.string :username
-      t.string :first_name
-      t.string :last_name
-      t.string :bio
-      t.string :email
+      t.string :manuscript_id
+      t.string :user_id
+      t.boolean :approval, default: false
 
       t.timestamps
     end
