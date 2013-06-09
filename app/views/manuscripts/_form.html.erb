@@ -1,0 +1,12 @@
+<%= simple_form_for @manuscript,
+      :html => {:multipart => true} do |f| %>
+<% genres = ["scifi", "fantasy"] %>
+  <%= f.input :title %>
+  <%= f.input :draft %>
+  <%= f.input :genres, hint: "separate with commas" %>
+  Upload Manuscript
+  <%= file_field_tag "upload"  %>
+  <%= label_tag "Manuscript" %>
+  <%= text_area_tag "book", nil, size: "100x100" %>
+  <%= f.button :submit, "Add Manuscript" %>
+<% end %>

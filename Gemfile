@@ -24,7 +24,13 @@ gem 'jquery-rails'
 gem 'devise', '2.1.0'
 gem 'zurb-foundation', '~>4.0.0'
 gem 'fancybox-rails'
+gem 'simple_form'
+gem 'paperclip', '2.7.0'
+gem 'docx-html'
 
+group :development do
+  gem 'better_errors'
+end
 group :test, :development do
   gem 'rspec-rails', '~>2.11'
   gem 'launchy'

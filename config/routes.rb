@@ -4,6 +4,9 @@ BetaTank::Application.routes.draw do
 
   authenticated :user do
     resources :betas
+    resources :manuscripts do
+      resources :content
+    end
   end
 
   root to: "home#index"

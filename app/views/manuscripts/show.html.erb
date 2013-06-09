@@ -1,0 +1,9 @@
+<%= @manuscript.title %>
+<%= "Draft #{@manuscript.draft}" %>
+<%= @manuscript.genres %>
+<% allText = [] %>
+<% @manuscript.contents.each do |book| %>
+  <% allText << book.line %>
+<% end %> <br />
+<!-- This joins the paragraphs together with breaks -->
+<%= simple_format(allText.join("<br />")) %>
