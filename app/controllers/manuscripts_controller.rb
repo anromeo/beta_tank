@@ -1,10 +1,11 @@
 class ManuscriptsController < ApplicationController
+
   def new
-    @manuscript = Manuscript.new
+    @manuscript = current_user.manuscripts.build
   end
 
   def create
-    @manuscript = Manuscript.new(params[:manuscript])
+    @manuscript = current_user.manuscripts.build(params[:manuscript])
 
     # checks to see if the text area is empty or not
     if params[:book].present? && @manuscript.save
@@ -23,7 +24,6 @@ class ManuscriptsController < ApplicationController
       filename = params[:upload].original_filename
       file = open(params[:upload])
       if filename.match(/.docx$/)
-        require 'docx'
         doc = Docx::Document.open(file)
         doc = doc.to_html
         doc = doc.gsub('<!DOCTYPE html>', '').gsub('</p>', "--++")
@@ -52,4 +52,5 @@ class ManuscriptsController < ApplicationController
   def show
     @manuscript = Manuscript.find(params[:id])
   end
+
 end

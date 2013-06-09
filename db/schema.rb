@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608203120) do
+ActiveRecord::Schema.define(:version => 20130609022402) do
 
   create_table "beta", :force => true do |t|
     t.string   "username"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130608203120) do
     t.string   "genres"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
