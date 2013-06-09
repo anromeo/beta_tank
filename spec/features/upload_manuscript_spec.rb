@@ -9,7 +9,6 @@ feature "an author uploads a manuscript" do
   genres = "fantasy, scifi"
   book = "tons and tons and tons of text"
   finish = "Add Manuscript"
-  bookFile = "spec/fixtures/features.docx"
 
   before do
     sign_in_as!(user)
@@ -20,11 +19,18 @@ feature "an author uploads a manuscript" do
     fill "manuscript_genres", genres
   end
 
-  scenario "an author uploads their first draft" do
-    attach_file "upload", bookFile
+  scenario "an author uploads their first draft in docx" do
+    attach_file "upload", "spec/fixtures/features.docx"
     click_button finish
     content title
     content "Which Features are Most Important to You?"
+  end
+
+  scenario "an author uploads their first draft in txt" do
+    attach_file "upload", "spec/fixtures/imaginary.txt"
+    click_button finish
+    content title
+    content "Once upon a time"
   end
 
   scenario "an author pastes their first draft" do
