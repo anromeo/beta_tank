@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20130609025759) do
 
   create_table "beta", :force => true do |t|
-    t.string   "manuscript_id"
-    t.string   "user_id"
+    t.integer  "manuscript_id"
+    t.integer  "user_id"
     t.boolean  "approval",      :default => false
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false

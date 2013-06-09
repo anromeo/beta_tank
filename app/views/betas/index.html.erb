@@ -1,5 +1,8 @@
-<%= link_to "Add New Manuscript", new_manuscript_path %>
-<%= link_to "Browse Books to Beta Read", manuscripts_path %>
+<%= link_to "Add New Manuscript", new_manuscript_path %><br />
+<%= link_to "Browse Books to Beta Read", manuscripts_path %><br />
+<% if @requests.present? %>
+  <%= link_to "New Requests", "/requests" %>
+<% end %>
 <h2>Your Manuscripts</h2>
 <% if @authored_books.nil? %>
   You currently don't have any books that you have uploaded

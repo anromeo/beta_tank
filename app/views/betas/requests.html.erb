@@ -1,0 +1,5 @@
+<% @requests.each do |request| %>
+  A request to read <%= request.manuscript.title %>
+  From <%= request.user.email %>
+  <%= link_to "Approve", edit_beta_path(request) %>
+<% end %>

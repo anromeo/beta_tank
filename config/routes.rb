@@ -12,6 +12,7 @@ BetaTank::Application.routes.draw do
 
   root to: "home#index"
 
+  match '/requests' => "betas#requests"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
