@@ -1,7 +1,9 @@
 BetaTank::Application.routes.draw do
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users
+    devise_for :users, :controllers => {
+      :omniauth_callbacks => "users/omniauth_callbacks"
+    }
 
     authenticated :user do
       resources :betas
@@ -11,6 +13,7 @@ BetaTank::Application.routes.draw do
       end
     end
 
+    match "/users/sessions", to: "betas#index"
     root to: "home#index"
 
     match '/requests' => "betas#requests"

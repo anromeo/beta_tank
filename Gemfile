@@ -26,6 +26,7 @@ gem 'fancybox-rails'
 gem 'simple_form'
 gem 'docx-html'
 gem 'rails-i18n'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'better_errors'

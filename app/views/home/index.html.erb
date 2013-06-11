@@ -1,2 +1,5 @@
+<%= link_to image_tag("icons/twitter_32.png"),
+            user_omniauth_authorize_path(:twitter),
+            id: "twitter_auth" %>
 <%= render "devise/sessions/form" %>
 <%= link_to "Join the Beta Tank", new_user_registration_path %>

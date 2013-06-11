@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609025759) do
+ActiveRecord::Schema.define(:version => 20130611073107) do
 
   create_table "beta", :force => true do |t|
     t.integer  "manuscript_id"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20130609025759) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "twitter_id"
+    t.string   "twitter_screen_name"
+    t.string   "twitter_display_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

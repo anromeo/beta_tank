@@ -31,3 +31,6 @@ Time and Locale Set
 
 Created with simple_form
 ![App Screenshot](/app/assets/images/form.png)
+
+Twitter Omniauth
+![App Screenshot](/app/assets/images/twitter.png)
