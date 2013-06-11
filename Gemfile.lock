@@ -44,10 +44,6 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.1)
-      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -104,11 +100,6 @@ GEM
     multi_json (1.7.6)
     nokogiri (1.5.9)
     orm_adapter (0.0.7)
-    paperclip (2.7.0)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
-      cocaine (>= 0.0.2)
-      mime-types
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -134,6 +125,8 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-i18n (0.7.3)
+      i18n (~> 0.5)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -211,10 +204,10 @@ DEPENDENCIES
   fancybox-rails
   jquery-rails
   launchy
-  paperclip (= 2.7.0)
   pry-debugger
   pry-rails
   rails (= 3.2.13)
+  rails-i18n
   rspec-rails (~> 2.11)
   sass-rails (~> 3.2.3)
   simple_form

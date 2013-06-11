@@ -1,3 +1,9 @@
+<h2>
+  <%= t ".title" %>
+</h2>
+<p>
+  <%= t ".directions" %>
+</p>
 <% @manuscripts.each do |manuscript| %>
   <div>
     <%= link_to manuscript.title, beta_path(manuscript) %>

@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : (t "site.title") %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -24,7 +24,7 @@
     <header>
       <% if user_signed_in? %>
         Signed in as <%= current_user.email %>
-        <%= link_to "Home", root_path %>
+        <%= link_to (t "home.link"), root_path %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
     </header>
@@ -35,8 +35,11 @@
       <% end %>
       <%= yield %>
     </div>
-
-
+    <footer>
+      <%= link_to_unless_current "English", locale: "en" %>
+      <%= link_to_unless_current "Spanish", locale: "es" %>
+      <%= link_to_unless_current "Filipino", locale: "ph" %>
+    </footer>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

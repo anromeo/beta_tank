@@ -1,18 +1,20 @@
 BetaTank::Application.routes.draw do
 
-  devise_for :users
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users
 
-  authenticated :user do
-    resources :betas
-    resources :manuscripts do
+    authenticated :user do
       resources :betas
-      resources :content
+      resources :manuscripts do
+        resources :betas
+        resources :content
+      end
     end
+
+    root to: "home#index"
+
+    match '/requests' => "betas#requests"
   end
-
-  root to: "home#index"
-
-  match '/requests' => "betas#requests"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

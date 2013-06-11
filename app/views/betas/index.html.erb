@@ -1,14 +1,22 @@
-<%= link_to "Add New Manuscript", new_manuscript_path %><br />
-<%= link_to "Browse Books to Beta Read", manuscripts_path %><br />
+<%= link_to (t "add.link"), new_manuscript_path %><br />
+<%= link_to (t "browse.link"), manuscripts_path %><br />
 <% if @requests.present? %>
-  <%= link_to "New Requests", "/requests" %>
+  <%= link_to (t "requests.link"), "/requests" %>
 <% end %>
-<h2>Your Manuscripts</h2>
-<% if @authored_books.nil? %>
-  You currently don't have any books that you have uploaded
-<% else %>
+<h2><%= t "author.title" %></h2>
+<% if @authored_books.present? %>
   <% @authored_books.each do |book| %>
     <p><%= link_to book.title, manuscript_path(book) %></p>
   <% end %>
+<% else %>
+  <%= t "author.empty" %>
 <% end %>
-<h2>Manuscripts Your Reading</h2>
+<h2><%= t "beta.title" %></h2>
+<% if @beta_books.present? %>
+  <% @beta_books.each do |beta| %>
+    <% book = beta.manuscript %>
+    <p><%= link_to book.title, manuscript_path(book) %></p>
+  <% end %>
+<% else %>
+  <%= t "beta.empty" %>
+<% end %>

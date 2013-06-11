@@ -3,6 +3,7 @@ class BetasController < ApplicationController
 
   def index
     @authored_books = current_user.manuscripts
+    @beta_books = current_user.betas.where("approval = ?", true)
   end
 
   def show
