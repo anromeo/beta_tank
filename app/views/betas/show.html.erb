@@ -2,5 +2,7 @@
 <%= @manuscript.title %>
 <%= "By #{@manuscript.user.email}" %>
 <%= "Draft #{@manuscript.draft}" %>
+<%= @manuscript.created_at.to_s(:posted_time) %>
+<%= @manuscript.updated_at.to_s(:upated_at) %>
 <%= @manuscript.genres %>
 <%= simple_format(@manuscript.description) %>

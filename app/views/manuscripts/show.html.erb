@@ -1,9 +1,21 @@
-<%= @manuscript.title %>
-<%= "Draft #{@manuscript.draft}" %>
-<%= @manuscript.genres %>
+<h2>
+  <%= @manuscript.title %>
+</h2>
+<p><em>
+  <%= "Draft #{@manuscript.draft}" %>
+</em></p>
+<p><em>
+  <%= @manuscript.genres %>
+</em></p>
+<p><em>
+  <%= @manuscript.updated_at.to_s(:updated_time) %>
+  <%= @manuscript.created_at.to_s(:posted_time) %>
+</em></p>
 <% allText = [] %>
 <% @manuscript.contents.each do |book| %>
   <% allText << book.line %>
 <% end %> <br />
-<!-- This joins the paragraphs together with breaks -->
-<%= simple_format(allText.join("<br />")) %>
+<div class="manuscriptText">
+  <!-- This joins the paragraphs together with breaks -->
+  <%= simple_format(allText.join("<br />")) %>
+</div>

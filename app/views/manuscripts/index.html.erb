@@ -6,8 +6,15 @@
 </p>
 <% @manuscripts.each do |manuscript| %>
   <div>
-    <%= link_to manuscript.title, beta_path(manuscript) %>
-    <%= "Draft #{manuscript.draft}" %>
-    <%= manuscript.description %>
+    <h3>
+      <%= link_to manuscript.title, beta_path(manuscript) %>
+    </h3>
+    <p><em>
+      <%= "Draft #{manuscript.draft}" %> <br />
+      <%= manuscript.created_at.to_s(:updated_time) %>
+    </em><p>
+    <p>
+      <%= manuscript.description %>
+    </p>
   </div>
 <% end %>
