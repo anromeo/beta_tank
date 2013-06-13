@@ -1,4 +1,4 @@
-<%= link_to "Send Beta Read Request", new_manuscript_beta_path(@manuscript) %>
+<%= link_to "Send Beta Read Request", new_manuscript_beta_path(@manuscript), remote: true %>
 <%= @manuscript.title %>
 <%= "By #{@manuscript.user.email}" %>
 <%= "Draft #{@manuscript.draft}" %>

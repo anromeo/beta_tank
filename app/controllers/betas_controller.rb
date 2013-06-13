@@ -24,8 +24,13 @@ class BetasController < ApplicationController
         message = "Sorry, there was a problem, and a request wasn't sent"
       end
     end
-    flash[:notification] = message
-    redirect_to beta_path(@manuscript.id)
+    respond_to do |format|
+      format.html do
+        flash[:notification] = message
+        redirect_to beta_path(@manuscript.id)
+      end
+      format.js
+    end
   end
 
   def edit
