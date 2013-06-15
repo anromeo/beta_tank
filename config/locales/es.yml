@@ -6,6 +6,9 @@ es:
     title: "The Beta Book Tank"
   home:
     link: "Casa"
+  splash:
+    title: "Welcome to the Beta Tank!"
+    text: "Where Authors and Betas Build Better Books!"
   add:
     link: "Add Your Manuscript"
   browse:
