@@ -11,6 +11,12 @@
   <%= @manuscript.updated_at.to_s(:updated_time) %>
   <%= @manuscript.created_at.to_s(:posted_time) %>
 </em></p>
+<% if current_user.id == @manuscript.user_id # || current_user.admin %>
+  <p>
+    <%= link_to "Delete Manuscript", manuscript_path(@manuscript),
+      method: :delete, confirm: "Are you sure you want to permanently delete this manuscript?" %>
+  </p>
+<% end %>
 <% allText = [] %>
 <% @manuscript.contents.each do |book| %>
   <% allText << book.line %>

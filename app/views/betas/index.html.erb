@@ -3,20 +3,24 @@
 <% if @requests.present? %>
   <%= link_to (t "requests.link"), "/requests" %>
 <% end %>
-<h2><%= t "author.title" %></h2>
-<% if @authored_books.present? %>
-  <% @authored_books.each do |book| %>
-    <p><%= link_to book.title, manuscript_path(book) %></p>
+<div id="yourManuscripts">
+  <h2><%= t "author.title" %></h2>
+  <% if @authored_books.present? %>
+    <% @authored_books.each do |book| %>
+      <p><%= link_to book.title, manuscript_path(book) %></p>
+    <% end %>
+  <% else %>
+    <%= t "author.empty" %>
   <% end %>
-<% else %>
-  <%= t "author.empty" %>
-<% end %>
-<h2><%= t "beta.title" %></h2>
-<% if @beta_books.present? %>
-  <% @beta_books.each do |beta| %>
-    <% book = beta.manuscript %>
-    <p><%= link_to book.title, manuscript_path(book) %></p>
+</div>
+<div id="betaManuscripts">
+  <h2><%= t "beta.title" %></h2>
+  <% if @beta_books.present? %>
+    <% @beta_books.each do |beta| %>
+      <% book = beta.manuscript %>
+      <p><%= link_to book.title, manuscript_path(book) %></p>
+    <% end %>
+  <% else %>
+    <%= t "beta.empty" %>
   <% end %>
-<% else %>
-  <%= t "beta.empty" %>
-<% end %>
+</div>

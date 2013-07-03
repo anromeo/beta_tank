@@ -1,4 +1,5 @@
 class ManuscriptsController < ApplicationController
+  before_filter :find_manuscript, only: [:destroy, :show]
 
   def index
     @manuscripts = Manuscript.all
@@ -23,11 +24,12 @@ class ManuscriptsController < ApplicationController
       end
 
       redirect_to @manuscript
-    elsif params[:upload].present? && @manuscript.save
+    elsif params[:upload].present?
 
       filename = params[:upload].original_filename
       file = open(params[:upload])
       if filename.match(/.docx$/)
+        @manuscript.save
         doc = Docx::Document.open(file)
         doc = doc.to_html
         doc = doc.gsub('<!DOCTYPE html>', '').gsub('</p>', "--++")
@@ -37,6 +39,7 @@ class ManuscriptsController < ApplicationController
           content.save
         end
       elsif filename.match(/.txt$/)
+        @manuscript.save
         doc = file.read
         docArray = doc.split('
 ')
@@ -44,6 +47,10 @@ class ManuscriptsController < ApplicationController
           content = @manuscript.contents.build(line: line)
           content.save
         end
+      else
+          flash[:notice] = "Sorry, you can only upload a docx or txt file."
+          render action: "new"
+          return
       end
       redirect_to @manuscript
     else
@@ -54,7 +61,17 @@ class ManuscriptsController < ApplicationController
   end
 
   def show
-    @manuscript = Manuscript.find(params[:id])
   end
 
+  def destroy
+    flash[:notice] = "You have deleted " + @manuscript.title
+    @manuscript.destroy
+    redirect_to betas_path
+  end
+
+  private
+
+  def find_manuscript
+    @manuscript = Manuscript.find(params[:id])
+  end
 end

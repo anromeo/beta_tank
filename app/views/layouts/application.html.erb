@@ -28,11 +28,11 @@
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
     </header>
-    <div class="wrapper">
       <% flash.each do |key, value| %>
         <p class="flash" id="<%= key %>">
           <%= value %></p>
       <% end %>
+    <div class="wrapper">
       <%= yield %>
     </div>
     <footer>
